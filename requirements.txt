@@ -1,0 +1,4 @@
+ Django==4.2.20
+ django-crispy-forms>=2.0
+ crispy-bootstrap4>=2022.1
+ django-multiselectfield>=0.1.12

@@ -1,0 +1,159 @@
+sqlite3 db.sqlite3
+----------------------------------------------------------------------------------------
+
+SELECT * FROM mm1_department;
+SELECT * FROM mm1_instructor;
+SELECT * FROM mm1_meetingtime;
+SELECT * FROM mm1_room;
+SELECT * FROM mm1_section;
+SELECT * FROM mm1_department_courses;
+SELECT * FROM mm1_course_instructors;
+SELECT * FROM django_admin_log;
+SELECT * FROM django_content_type;
+SELECT * FROM auth_permission;
+SELECT * FROM auth_user;
+SELECT * FROM auth_group;
+SELECT * FROM django_session;
+
+-------------------------------------------------------------------------------------------
+
+DELETE FROM mm1_department;
+DELETE FROM mm1_instructor;
+DELETE FROM mm1_meetingtime;
+DELETE FROM mm1_room;
+DELETE FROM mm1_section;
+DELETE FROM mm1_department_courses;
+DELETE FROM mm1_course_instructors;
+DELETE FROM auth_user;
+DELETE FROM django_admin_log;
+DELETE FROM django_session;
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+1. Insert Data into mm1_course
+
+INSERT INTO mm1_course (course_number, course_name, max_numb_students) VALUES
+('C101', 'Data Science', '50'),
+('C102', 'Machine Learning', '60'),
+('C103', 'Artificial Intelligence', '55');
+-------------------------------------------------------------------------------------------
+
+
+2. Insert Data into mm1_department
+sql
+Copy
+Edit
+INSERT INTO mm1_department (id, dept_name) VALUES
+(1, 'Computer Science'),
+(2, 'Information Technology'),
+(3, 'Electronics and Communication');
+
+-------------------------------------------------------------------------------------------
+
+
+3. Insert Data into mm1_department_courses
+sql
+Copy
+Edit
+INSERT INTO mm1_department_courses (id, department_id, course_id) VALUES
+(1, 1, 'C101'),
+(2, 2, 'C102'),
+(3, 3, 'C103');
+
+-------------------------------------------------------------------------------------------
+
+4. Insert Data into mm1_instructor
+sql
+Copy
+Edit
+INSERT INTO mm1_instructor (id, uid, name) VALUES
+(1, 'I001', 'Dr. Smith'),
+(2, 'I002', 'Dr. Johnson'),
+(3, 'I003', 'Dr. Brown'),
+(4, 'I004', 'Maha');
+
+
+-------------------------------------------------------------------------------------------
+
+5. Insert Data into mm1_meetingtime
+sql
+Copy
+Edit
+INSERT INTO mm1_meetingtime (pid, time, day) VALUES
+('P001', '10:00 AM - 12:00 PM', 'Monday'),
+('P002', '2:00 PM - 4:00 PM', 'Wednesday'),
+('P003', '9:00 AM - 11:00 AM', 'Friday');
+
+-------------------------------------------------------------------------------------------
+
+
+6. Insert Data into mm1_room
+sql
+Copy
+Edit
+INSERT INTO mm1_room (id, r_number, seating_capacity) VALUES
+(1, 'R101', 50),
+(2, 'R102', 60),
+(3, 'R103', 55);
+
+-------------------------------------------------------------------------------------------
+
+7. Insert Data into mm1_course_instructors
+
+sql
+Copy
+Edit
+INSERT INTO mm1_course_instructors (id, course_id, instructor_id) VALUES
+(1, 'C101', 1),
+(2, 'C102', 2),
+(3, 'C103', 3);
+
+-------------------------------------------------------------------------------------------
+
+8. Insert Data into mm1_section
+sql
+Copy
+Edit
+INSERT INTO mm1_section (section_id, course_id, department_id, instructor_id, meeting_time_id, room_id, num_class_in_week) VALUES
+('S101', 'C101', 1, 1, 'P001', 1, 3),
+('S102', 'C102', 2, 2, 'P002', 2, 4),
+('S103', 'C103', 3, 3, 'P003', 3, 5);
+
+-------------------------------------------------------------------------------------------
+
+9. Insert Data into auth_user
+sql
+Copy
+Edit
+INSERT INTO auth_user (id, password, last_login, is_superuser, username, first_name, email, is_staff, is_active, date_joined, last_name) VALUES
+(1, 'hashed_password1', NULL, 1, 'admin', 'Admin', 'admin@example.com', 1, 1, '2025-04-02', 'User'),
+(2, 'hashed_password2', NULL, 0, 'john_doe', 'John', 'john@example.com', 0, 1, '2025-04-02', 'Doe'),
+(3, 'hashed_password3', NULL, 0, 'jane_doe', 'Jane', 'jane@example.com', 0, 1, '2025-04-02', 'Doe');
+
+-------------------------------------------------------------------------------------------
+
+10. Insert Data into django_session
+sql
+Copy
+Edit
+INSERT INTO django_session (session_key, session_data, expire_date) VALUES
+('session1', 'data1', '2025-05-01'),
+('session2', 'data2', '2025-06-01'),
+('session3', 'data3', '2025-07-01');
+
+-------------------------------------------------------------------------------------------
+
+11. Insert Data into django_admin_log
+sql
+Copy
+Edit
+INSERT INTO django_admin_log (id, action_time, user_id, content_type_id, object_id, object_repr, action_flag, change_message) VALUES
+(1, '2025-04-02 10:00:00', 1, 1, '1', 'User Created', 1, 'Created User'),
+(2, '2025-04-02 10:05:00', 1, 1, '2', 'Updated User', 2, 'Updated Email'),
+(3, '2025-04-02 10:10:00', 1, 1, '3', 'Deleted User', 3, 'Deleted User');
+
+-------------------------------------------------------------------------------------------
+.exit
